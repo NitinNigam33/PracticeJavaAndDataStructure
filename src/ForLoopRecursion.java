@@ -3,7 +3,7 @@ public class ForLoopRecursion {
     public static void main(String[] args) {
         String[][] str = { { "you", "we" }, { "have", "are"}, { "sleep", "eat", "drink" } };
 
-        String temp[] = new String[4];
+        String temp[] = new String[3];
         print(str, 0, temp, 0);
     }
 
@@ -25,10 +25,8 @@ public class ForLoopRecursion {
 
         for (int i = 0; i < str[strt].length; i++) {
 //            System.out.println("strt : " +strt + "; i :" +i);
-//            if (str[strt][i] != "") {
                 output[index] = str[strt][i];
                 print(str, strt + 1, output, index + 1);
-//            }
         }
         return;
 
