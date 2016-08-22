@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class getXslRowOutput {
@@ -6,29 +5,31 @@ public class getXslRowOutput {
         Scanner sc = new Scanner(System.in);
         System.out.println("please enter integer");
         int n = sc.nextInt();
-        ArrayList<Integer> list = new ArrayList<Integer>();
+        char[] str = new char[50];  // To store result (Excel column name)
+        int i = 0;  // To store current index in str which is result
 
 
         while(n > 0) {
+         // Find remainder
+            int rem = n%26;
 
-            if(n > 27) {
-                int var = n / 26;
-                list.add(var + 64);
-                n = n - (24 + var);
-                System.out.println(" 1 :" +n);
-            } else if (n > 1) {
-                list.add(n + 64);
-                n = n-26;
-                System.out.println(" 2 : " +n);
+            // If remainder is 0, then a 'Z' must be there in output
+            if (rem==0)
+            {
+                str[i++] = 'Z';
+                n = (n/26)-1;
+            }
+            else // If remainder is non-zero
+            {
+                str[i++] = (char) ((rem-1) + 'A');
+                n = n/26;
             }
         }
 //        System.out.println("array list is : " + list);
         System.out.print("xsl row is :   ");
 
-        for(int i = 0; i < list.size(); i++) {
-            int temp = list.get(i);
-            char ch = (char) temp;
-            System.out.print(ch + " ");
+        for(char temp : str) {
+            System.out.print(temp + " ");
         }
 
     }
