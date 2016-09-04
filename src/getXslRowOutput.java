@@ -24,6 +24,7 @@ public class getXslRowOutput {
         char[] str = new char[50]; // To store result (Excel column name)
         int i = 0; // To store current index in str which is result
 
+        // Core logic.
         while (n > 0) {
             // Find remainder
             int rem = n % 26;
@@ -38,6 +39,8 @@ public class getXslRowOutput {
                 n = n / 26;
             }
         }
+
+
         // System.out.println("array list is : " + list);
         System.out.print("xsl row is :   ");
 
